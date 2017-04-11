@@ -151,7 +151,7 @@ class TicketRPC(Component):
 
     def get(self, req, id):
         """ Fetch a ticket. Returns [id, time_created, time_changed, attributes]. """
-        self.log.debug("RPC(xml) Fetch ticket with ID %s" % (id))
+        self.log.debug("RPC(xml) Fetch ticket with ID %s", id)
         t = model.Ticket(self.env, id)
         req.perm(t.resource).require('TICKET_VIEW')
         t['_ts'] = str(to_utimestamp(t.time_changed))
